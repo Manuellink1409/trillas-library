@@ -14,17 +14,17 @@ import lombok.Setter;
 public class RegistrationRequest {
 
     @NotEmpty(message = "The firstname field can not be null")
-    @NotBlank(message = "The firstname field can not be null")
+    @NotBlank(message = "The firstname field can not be blank")
     private String firstname;
     @NotEmpty(message = "The lastname field can not be null")
-    @NotBlank(message = "The lastname field can not be null")
+    @NotBlank(message = "The lastname field can not be blank")
     private String lastname;
     @NotEmpty(message = "The email field can not be null")
-    @NotBlank(message = "The email field can not be null")
+    @NotBlank(message = "The email field can not be blank")
     @Email(message = "Email is not well formatted")
     private String email;
     @NotEmpty(message = "The password field can not be null")
-    @NotBlank(message = "The password field can not be null")
+    @NotBlank(message = "The password field can not be blank")
     @Size(min = 8, message = "Password should be 8 characters long minimum")
     private String password;
 
