@@ -1,5 +1,6 @@
 package com.hypermedia.library.book;
 
+import com.hypermedia.library.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,6 +31,18 @@ public class BookMapper {
                 .rate(book.getRate())
                 .archived(book.isArchived())
                 .shareable(book.isArchived())
+                .build();
+    }
+
+    public BorrowedBookResponse toBorrowedResponse(BookTransactionHistory history) {
+        return BorrowedBookResponse.builder()
+                .id(history.getBook().getId())
+                .title(history.getBook().getTitle())
+                .authorName(history.getBook().getAuthorName())
+                .isbn(history.getBook().getIsbn())
+                .rate(history.getBook().getRate())
+                .returned(history.isReturned())
+                .returnApproved(history.isReturnApproved())
                 .build();
     }
 }

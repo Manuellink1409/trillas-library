@@ -70,4 +70,12 @@ public class GlobalExceptionHandler {
                 .build());
     }
 
+    @ExceptionHandler(OperationNotPermittedException.class)
+    public ResponseEntity<ExceptionResponse> handleException(OperationNotPermittedException exp){
+        return ResponseEntity.status(BAD_REQUEST).body(ExceptionResponse
+                .builder()
+                .error(exp.getMessage())
+                .build());
+    }
+
 }
